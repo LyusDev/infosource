@@ -17,7 +17,7 @@ Vue.use(VueGeolocation)
 
 Vue.use(VueGoogleMaps ,{
     load: {
-        key:'AIzaSyCKDtceM4ajNK6qVhaumx0-EF40TeWZcoI'
+        key:''
     },
     
 })
