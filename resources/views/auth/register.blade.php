@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="mx-auto h-full flex justify-center items-center bg-white">
+<div class="mx-auto h-full flex justify-center items-center">
     <div class="w-1/2 bg-white rounded-lg shadow-xl p-6">
         <h1 class="text-black text-3xl pt-10">Hi! Register your Account here.</h1>
         <h2 class="text-black ">Just fill up the forms below.</h2>
@@ -51,9 +51,12 @@
             <div class="relative pt-3">
                 <label for="province" class="uppercase text-black-50 text-xs absolute p-3">Province</label>
                 <select id="province" class="pt-10 w-full rounded p-3 text-black-50 bg-gray-200" name="province" value="{{ old('province') }}">
-                    <option>1</option>
-                    <option>1</option>
-                    <option>1</option>
+                    
+                    @foreach($data as $province_list)
+                    @foreach(array_keys($province_list['province_list']) as $row)
+                    <option>{{$row}}</option>
+                    @endforeach
+                    @endforeach
                 </select>
                 @error('province')
                 <span class="invalid-feedback" role="alert">
@@ -64,9 +67,15 @@
             <div class="relative pt-3">
                 <label for="city" class="uppercase text-black-50 text-xs absolute p-3">City</label>
                 <select id="city" class="pt-10 w-full rounded p-3 text-black-50 bg-gray-200" name="city" value="{{ old('city') }}">
-                    <option>1</option>
-                    <option>1</option>
-                    <option>1</option>
+                    @foreach($data as $province_list)
+                    @foreach($province_list['province_list'] as $row)
+                    @foreach($row as $municipality_list)
+                    @foreach(array_keys($municipality_list) as $ew)
+                    <option>{{$ew}}</option>
+                    @endforeach
+                    @endforeach
+                    @endforeach
+                    @endforeach
                 </select>
                 @error('city')
                 <span class="invalid-feedback" role="alert">
@@ -77,9 +86,19 @@
             <div class="relative pt-3">
                 <label for="barangay" class="uppercase text-black-50 text-xs absolute p-3">Barangay</label>
                 <select id="barangay" class="pt-10 w-full rounded p-3 text-black-50 bg-gray-200" name="barangay" value="{{ old('barangay') }}">
-                    <option>1</option>
-                    <option>1</option>
-                    <option>1</option>
+                    @foreach($data as $province_list)
+                    @foreach($province_list['province_list'] as $municipality_list)
+                    @foreach($municipality_list as $barangay_list)
+                    @foreach($barangay_list as $ew)
+                    @foreach($ew as $we)
+                    @foreach($we as $wq)
+                    <option>{{$wq}}</option>
+                    @endforeach
+                    @endforeach
+                    @endforeach
+                    @endforeach
+                    @endforeach
+                    @endforeach
                 </select>
                 @error('barangay')
                 <span class="invalid-feedback" role="alert">

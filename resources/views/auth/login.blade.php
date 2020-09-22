@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="mx-auto h-full flex justify-center items-center bg-white">
+<div class="mx-auto h-full flex justify-center items-center">
     <div class="lg:w-1/4 xl:w-1/4 w-1/2 bg-gray-200 rounded-lg shadow-xl p-6">
 
         <h1 class="text-black text-3xl pt-10">Welcome back!</h1>

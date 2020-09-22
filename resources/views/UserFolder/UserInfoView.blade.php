@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="mx-auto h-full grid justify-center">
+<div class="mx-10 h-full grid grid-cols-1 xl:grid-cols-2 lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-2 gap-4 justify-center">
     <div class="bg-white rounded-lg shadow-xl p-6">
         <h1 class="text-black text-3xl font-bold">Hi! {{$userInfo->firstName}}</h1>
 
@@ -70,6 +70,9 @@
                 </table>
             </div>
         </div>
+    </div>
+    <div class="bg-white rounded-lg shadow-xl p-6 ">
+        <map-view class="p-5"></map-view>
     </div>
 
 

@@ -8,6 +8,20 @@
 
 window.Vue = require('vue');
 
+import VueGeolocation from 'vue-browser-geolocation';
+import * as VueGoogleMaps from 'vue2-google-maps';
+
+
+
+Vue.use(VueGeolocation)
+
+Vue.use(VueGoogleMaps ,{
+    load: {
+        key:'AIzaSyCKDtceM4ajNK6qVhaumx0-EF40TeWZcoI'
+    },
+    
+})
+
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
@@ -19,7 +33,7 @@ window.Vue = require('vue');
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
-//Vue.component('User-Sign-Up', require('./components/usersignup.vue').default);
+Vue.component('map-view', require('./components/map.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -27,6 +41,8 @@ window.Vue = require('vue');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
+
 const app = new Vue({
     el: '#app',
+
 });
